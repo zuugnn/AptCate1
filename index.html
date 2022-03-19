@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script type="text/javascript" src="aptCate.js" />
+    </head>
+    <body>
+        <div id="aptCate">
+            <!--@js(/js/module/layout/aptCate.js)-->
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                    Area
+                    <span class="caret"></span>
+                </button>
+                <ul id="liarea" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <!-- generate from php -->
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alpha</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Beta</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Gamma</a></li>
+                    <!-- end generate -->
+                </ul>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle disabled" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                    Room
+                    <span class="caret"></span>
+                </button>
+                <ul id="room" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2"></ul>
+            </div>
+        </div>
+    </body>
+</html>
