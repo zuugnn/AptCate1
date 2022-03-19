@@ -5,30 +5,34 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script type="text/javascript" src="aptCate.js" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="subCate.js"></script>
+        <script type="text/javascript" src="aptCate.js"></script>
     </head>
     <body>
         <div id="aptCate">
-            <!--@js(/js/module/layout/aptCate.js)-->
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-                    Area
-                    <span class="caret"></span>
-                </button>
-                <ul id="liarea" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <!-- generate from php -->
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Alpha</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Beta</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Gamma</a></li>
-                    <!-- end generate -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+            <div class="btn-group">
+                <button data-toggle="dropdown" class="btn btn-success dropdown-toggle">Success <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
                 </ul>
             </div>
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle disabled" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
-                    Room
-                    <span class="caret"></span>
-                </button>
-                <ul id="room" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2"></ul>
+            <div class="btn-group">
+                <button data-toggle="dropdown" class="btn btn-info dropdown-toggle">Info <span class="caret"></span></button>
+                <ul class="dropdown-menu" id="states">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
             </div>
         </div>
     </body>
