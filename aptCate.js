@@ -1,5 +1,4 @@
-var states = ["Kansas", "Oklahoma", "Texas"];
-
+/*
 $(".dropdown-menu > li > a").click(function () {
     yourFunction(this.text);
 });
@@ -12,3 +11,4 @@ function yourFunction(val) {
         }
     }
 }
+*/
