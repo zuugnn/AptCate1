@@ -565,25 +565,13 @@ img {
 
 .main-header-area {
     width: 100%;
-    height: 90px;
     position: relative;
     z-index: 1;
+}
+.main-header-area .nav-bar {
     background-color: rgba(0, 0, 0, 0.4);
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
-}
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .main-header-area {
-        height: 70px;
-    }
-}
-@media only screen and (max-width: 767px) {
-    .main-header-area {
-        height: 70px;
-    }
-}
-.main-header-area .classy-nav-container {
-    background-color: transparent;
 }
 .main-header-area .classy-navbar {
     height: 90px;
@@ -719,18 +707,15 @@ img {
 .is-sticky .main-header-area {
     width: 100%;
     z-index: 10000 !important;
-    height: 90px;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+
     background-color: #000000;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .is-sticky .main-header-area {
-        height: 70px;
     }
 }
 @media only screen and (max-width: 767px) {
     .is-sticky .main-header-area {
-        height: 70px;
     }
 }
 
@@ -905,6 +890,7 @@ img {
 .south-search-area {
     position: relative;
     z-index: 1;
+    background-color: #ffffff;
 }
 .south-search-area .advanced-search-form {
     position: relative;
@@ -1579,7 +1565,6 @@ img {
 /* :: 19.0 Listings Area CSS */
 .listings-content-wrapper {
     overflow-x: hidden;
-    padding: 400px 0;
 }
 
 .listings-top-meta {

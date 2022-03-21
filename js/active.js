@@ -34,10 +34,15 @@
 
     // :: Sticky Active Code
     if ($.fn.sticky) {
-        $(".stickyHeader").sticky({
+        $("#stickyHeader").sticky({
             topSpacing: 0,
         });
     }
+
+    // 본문 상단 간격
+    $(".listings-content-wrapper").css("padding-top", function () {
+        return $(".main-header-area").outerHeight(true) + 50;
+    });
 
     // :: Tooltip Active Code
     if ($.fn.tooltip) {
