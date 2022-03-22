@@ -451,8 +451,8 @@ img {
 .south-btn {
     position: relative;
     z-index: 1;
-    min-width: 170px;
-    height: 50px;
+    /*min-width: 170px;
+    height: 50px;*/
     color: #ffffff;
     font-size: 14px;
     font-weight: 600;
@@ -703,11 +703,11 @@ img {
 .search-close .south-search-form {
     display: block;
 }
-
 .is-sticky .main-header-area {
     width: 100%;
     z-index: 10000 !important;
-
+}
+.is-sticky .nav-bar {
     background-color: #000000;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -891,6 +891,9 @@ img {
     position: relative;
     z-index: 1;
     background-color: #ffffff;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .south-search-area .advanced-search-form {
     position: relative;
