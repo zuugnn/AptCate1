@@ -192,105 +192,42 @@
         });
     });
 
-    function viewmodel() {
-        this.apts = ko.observableArray([]);
-        this.loading = ko.observable(false);
+    // 아파트 카테고리
+    $("#aptCate .step1").on("click", "ul button", function () {
+        cleanCate("step1");
+        revealCate("step1", this.innerText);
+        renderCate("step2", this.value);
+    });
+    $("#aptCate .step2").on("click", "ul button", function () {
+        cleanCate("step2");
+        revealCate("step2", this.innerText);
+        renderCate("step3", this.value);
+    });
+    $("#aptCate .step3").on("click", "ul button", function () {
+        cleanCate("step3");
+        revealCate("step3", this.innerText);
+        //목록출력
+    });
+
+    function cleanCate(cate) {
+        var scope = $("#aptCate ." + cate).nextAll();
+        scope.children("button").text(function () {
+            return this.value;
+        });
+        scope.children("ul").html("");
     }
 
-    var aptCate = new viewmodel();
+    function revealCate(cate, text) {
+        $("#aptCate ." + cate + ">button").text(text);
+    }
 
-    ko.applyBindings(aptCate, document.getElementById("aptCate"));
+    function renderCate(cate, val) {
+        var data = subCate[val];
 
-    $("#aptCate").cascadingDropdown({
-        selectBoxes: [
-            {
-                selector: ".step1",
-                source: [
-                    { label: "서울시", value: 77 },
-                    { label: "경기도", value: 99 },
-                ],
-            },
-            {
-                selector: ".step2",
-                requires: [".step1"],
-                source: function (request, response) {
-                    // subCate는 category.js에서 가져옴
-                    data = subCate[request["sido"]];
-
-                    var selectOnlyOption = data.length <= 1;
-                    response(
-                        $.map(data, function (item, index) {
-                            return {
-                                label: item.name,
-                                value: item.cate_no,
-                                selected: selectOnlyOption,
-                            };
-                        })
-                    );
-                },
-            },
-            {
-                selector: ".step3",
-                requires: [".step1", ".step2"],
-                requireAll: true,
-                source: function (request, response) {
-                    data = subCate[request["gungu"]];
-
-                    var selectOnlyOption = data.length <= 1;
-                    response(
-                        $.map(data, function (item, index) {
-                            return {
-                                label: item.name,
-                                value: item.cate_no,
-                                selected: selectOnlyOption,
-                            };
-                        })
-                    );
-                },
-            },
-        ],
-        onChange: function (event, dropdownData) {
-            var arr2 = Object.values(dropdownData).filter(function (n) {
-                return n !== "";
-            });
-            var cate_no = arr2[arr2.length - 1];
-            if (cate_no !== undefined) {
-                aptCate.loading(true);
-
-                /*
-                var res_array = [];
-                var offset;
-
-                for (offset = 0; offset < 1000; offset += 100) {
-                    $.ajax({
-                        type: "GET",
-                        url: "/api/v2/categories/" + cate_no + "/products?display_group=1",
-                        data: { offset: offset, limit: 100 },
-                        async: false,
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader("X-Cafe24-Client-Id", "1mbvODfKbKpc71Z4rs3kgH");
-                            xhr.setRequestHeader("Content-Type", "application/json");
-                        },
-                        success: function (res) {
-                            var products = res.products                            
-                            for (var i in products) {
-                                res_array.push(products[i]);
-                            }               
-
-                        },
-                        error: function (request, status, error) {
-                            console.log("e:", error);
-                        },
-                    });
-                }
-                */
-                res_array = aptData;
-
-                console.log("last:", res_array);
-
-                aptCate.apts(res_array);
-                aptCate.loading(false);
-            }
-        },
-    });
+        $.map(data, function (item, index) {
+            $("#aptCate ." + cate + " ul").append(
+                '<li><button class="dropdown-item' + (data.length <= 1 ? " active" : "") + '" type="button" value="' + item.cate_no + '">' + item.name + "</button></li>"
+            );
+        });
+    }
 })(jQuery);
